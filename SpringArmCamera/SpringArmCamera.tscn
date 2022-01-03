@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://SpringArmCamera/Camera.gd" type="Script" id=1]
+
+[node name="SpringArm" type="SpringArm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.40131, 0 )
+spring_length = 10.0
+script = ExtResource( 1 )
+nodePathToTrack = NodePath("../Player")
+
+[node name="ClippedCamera" type="ClippedCamera" parent="."]
+current = true
+near = 0.01
+far = 8192.0

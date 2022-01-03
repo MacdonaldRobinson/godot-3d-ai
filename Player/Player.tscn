@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player/Player.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=4]
+height = 2.0
+
+[sub_resource type="CapsuleMesh" id=5]
+mid_height = 2.0
+
+[sub_resource type="CylinderMesh" id=6]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 1.0
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.80484, 0 )
+script = ExtResource( 1 )
+springArmNodePath = NodePath("../SpringArm")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="CollisionShape/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -0.048924, -0.933824, -1.28511 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../../../../Ground/CollisionShape/MeshInstance")
+material/0 = null
