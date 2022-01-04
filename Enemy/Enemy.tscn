@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=1]
 
@@ -18,6 +18,8 @@ height = 1.0
 
 [sub_resource type="CylinderShape" id=9]
 radius = 4.35602
+
+[sub_resource type="SphereMesh" id=10]
 
 [node name="Enemy" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27641, 0 )
@@ -42,4 +44,17 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 9 )
 
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
+[node name="ForwardRayCast" type="RayCast" parent="."]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+
+[node name="FloorRayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.21113 )
+enabled = true
+cast_to = Vector3( 0, -5, 0 )
+
+[node name="Sphere" type="MeshInstance" parent="."]
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="Holder" type="Spatial" parent="."]

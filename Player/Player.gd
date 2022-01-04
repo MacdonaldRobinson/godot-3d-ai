@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 
 export var springArmNodePath:NodePath
 onready var springArm:SpringArm = get_node(springArmNodePath)

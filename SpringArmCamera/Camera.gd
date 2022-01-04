@@ -18,8 +18,8 @@ func _process(delta):
 	
 	if next_spring_length < 2:
 		next_spring_length = 2
-	elif next_spring_length > 15:
-		next_spring_length = 15
+	elif next_spring_length > 100:
+		next_spring_length = 100
 	
 	if next_spring_length != self.spring_length:
 		self.spring_length = lerp(self.spring_length, next_spring_length, 0.1)
