@@ -35,18 +35,32 @@ func normal_state():
 func alert_state():
 	areaShape.radius = 20
 	forwardRayCast.cast_to = Vector3.FORWARD * 20 
-	speed = 1.5
+	speed = 3
 	
 func navigate_to_target(target:Spatial):
 	targetNode = target
 	navPath = navNode.get_simple_path(self.global_transform.origin, target.global_transform.origin)	
 
 func _process(delta):
-	
 	if !is_on_floor():
 		vector = Vector3.DOWN * gravity
 	else:
-		navigate_to_target(targetNode)
+		var bodies = area.get_overlapping_bodies()
+		var foundTarget = false
+		
+		if bodies.size() > 1:
+			for body in bodies:
+				if body == targetNode:
+					foundTarget = true
+			
+		if foundTarget:
+			alert_state()
+			navigate_to_target(targetNode)
+		else:
+			normal_state()
+			navPath = []
+				
+							
 		if navPath.size() > 0:
 			for child in $Holder.get_children():
 				$Holder.remove_child(child)
@@ -63,10 +77,10 @@ func _process(delta):
 				vector = direction * speed * 5
 				
 				if is_equal_approx(self.global_transform.origin.x, path.x) and is_equal_approx(self.global_transform.origin.z, path.z):
-					var nextPath = navPath[1]
-					self.look_at(nextPath, Vector3.UP)
+					if navPath.size() > 1:
+						var nextPath = navPath[1]
+						self.look_at(nextPath, Vector3.UP)
 					self.rotation.x = 0
-					
 					navPath.remove(0)
 
 			

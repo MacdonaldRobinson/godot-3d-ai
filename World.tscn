@@ -35,12 +35,42 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110486, 0 )
 [node name="SpringArm" parent="." instance=ExtResource( 3 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.959353, 0, 0.282208, 0, 1, 0, -0.282208, 0, -0.959353, -2.71646, 1.31689, 6.60202 )
+transform = Transform( -0.959353, 0, 0.282208, 0, 1, 0, -0.282208, 0, -0.959353, -2.71646, 1.31689, 19.4922 )
 
 [node name="Walls" type="Spatial" parent="."]
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, -13.4661, 4.39046, 30.5373 )
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, -29.6822, 4.39046, 30.5373 )
+navNodePath = NodePath("../Navigation")
+targetPath = NodePath("../Player")
+
+[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, -13.4661, 4.39046, -18.9536 )
+navNodePath = NodePath("../Navigation")
+targetPath = NodePath("../Player")
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, 23.1578, 4.39046, -18.9536 )
+navNodePath = NodePath("../Navigation")
+targetPath = NodePath("../Player")
+
+[node name="Enemy4" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, 23.1578, 4.39046, 14.4147 )
+navNodePath = NodePath("../Navigation")
+targetPath = NodePath("../Player")
+
+[node name="Enemy5" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, 23.1578, 4.39046, 31.5266 )
+navNodePath = NodePath("../Navigation")
+targetPath = NodePath("../Player")
+
+[node name="Enemy6" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, -0.147636, 4.39046, 31.5266 )
+navNodePath = NodePath("../Navigation")
+targetPath = NodePath("../Player")
+
+[node name="Enemy7" parent="." instance=ExtResource( 4 )]
+transform = Transform( -0.11159, 0, 0.993754, 0, 1, 0, -0.993754, 0, -0.11159, -29.4737, 4.39046, 9.05924 )
 navNodePath = NodePath("../Navigation")
 targetPath = NodePath("../Player")
 
